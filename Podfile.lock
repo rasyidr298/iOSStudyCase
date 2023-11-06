@@ -1,0 +1,34 @@
+PODS:
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
+  - SwiftAlgorithms (1.0.0)
+  - SwiftQRScanner (1.1.5)
+
+DEPENDENCIES:
+  - Charts
+  - SwiftQRScanner (from `https://github.com/vinodiOS/SwiftQRScanner`)
+
+SPEC REPOS:
+  trunk:
+    - Charts
+    - SwiftAlgorithms
+
+EXTERNAL SOURCES:
+  SwiftQRScanner:
+    :git: https://github.com/vinodiOS/SwiftQRScanner
+
+CHECKOUT OPTIONS:
+  SwiftQRScanner:
+    :commit: 5cbeb5f2a12c12f679d4bd5bdd99a6b751d98f7c
+    :git: https://github.com/vinodiOS/SwiftQRScanner
+
+SPEC CHECKSUMS:
+  Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
+  SwiftQRScanner: c4824d46d6af3e595a1a895b1c0c117da66da394
+
+PODFILE CHECKSUM: 63d72aa61735b1ee8cbac7d9f7f37c92c7f5ca5e
+
+COCOAPODS: 1.13.0
