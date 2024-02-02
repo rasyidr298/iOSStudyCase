@@ -7,38 +7,50 @@
 
 import UIKit
 
-class RootVC: UIViewController {
+class RootVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
 
+        setupVCs()
     }
     
-    @IBAction func onClickQR(_ sender: Any) {
-        let vc = QRVC()
-        pushController(vc, animated: true)
+    func setupVCs() {
+        viewControllers = [
+            createNavController(
+                for: QRVC(),
+                title: "QR",
+                image: UIImage(systemName: "qrcode")!,
+                selectedImage: UIImage(systemName: "qrcode")!
+            ),
+            createNavController(
+                for: PortofolioVC(),
+                title: "Portofolio",
+                image: UIImage(systemName: "tray.fill")!,
+                selectedImage: UIImage(systemName: "tray.fill")!
+            ),
+            createNavController(
+                for: PromoVC(),
+                title: "Promo",
+                image: UIImage(systemName: "doc.text")!,
+                selectedImage: UIImage(systemName: "doc.text")!
+            ),
+        ]
     }
     
-    @IBAction func onClickPromo(_ sender: Any) {
-        let vc = PromoVC()
-        pushController(vc, animated: true)
-    }
-    
-    @IBAction func onClickPortofolio(_ sender: Any) {
-//        let vc = PortofolioVC()
-//        pushController(vc, animated: true)
-        
-        
-        let vc =  PaymentVC()
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .coverVertical
-        vc.qrModel = QRModel(qrString: "BNI.ID12345678.MERCHANT MOCK TEST.50000")
-        self.present(vc, animated: true)
-    }
-    
-    @IBAction func onClickPushNotif(_ sender: Any) {
-        let vc = PushNotif()
-        pushController(vc, animated: true)
+    private func createNavController(
+        for rootViewController: UIViewController,
+        title: String,
+        image: UIImage, 
+        selectedImage: UIImage
+    ) -> UIViewController {
+        let navVC = BaseNavigationController(rootViewController: rootViewController)
+        navVC.tabBarItem.title = title
+        navVC.tabBarItem.image = image
+        navVC.tabBarItem.selectedImage = selectedImage
+        return navVC
     }
 }
 

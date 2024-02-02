@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum PaymentHistoryCacheKey: String {
+enum PaymentCacheKey: String {
     case paymentSuccess
+    case saldoAmount
 }
